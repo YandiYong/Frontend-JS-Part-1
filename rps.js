@@ -4,6 +4,8 @@ const BEATS = {
     scissors: "paper"
 };
 
+const WINNING_SCORE= 3;
+
 function game() {
 
     let playerScore = 0;
@@ -18,7 +20,7 @@ function game() {
 
         Press OK to begin.`);
 
-    while (playerScore < 3 && computerScore < 3) {
+    while (playerScore < WINNING_SCORE && computerScore < WINNING_SCORE) {
 
         let playerSelection = prompt(`Choose rock, paper or scissors:`);
 
@@ -56,7 +58,7 @@ function game() {
 
     }
 
-    if (playerScore === 3) {
+    if (playerScore === WINNING_SCORE) {
         alert(`Congratulations! You defeated the computer`);
     } else {
         alert(`Game Over! The computer defeated you!`);
