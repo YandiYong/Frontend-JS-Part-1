@@ -6,6 +6,14 @@ const BEATS = {
 
 const WINNING_SCORE= 3;
 
+function computerPlay() {
+    const rpsChoices = ["rock", "paper", "scissors"];
+
+    const randomNumber = Math.floor(Math.random() * rpsChoices.length);
+
+    return rpsChoices[randomNumber];
+}
+
 function game() {
 
     let playerScore = 0;
@@ -64,3 +72,14 @@ function game() {
         alert(`Game Over! The computer defeated you!`);
     }
 }
+
+function newGame(){
+    let playAgain = true;
+
+    while(playAgain){
+        game();
+        playAgain = confirm(`Would you like to play again?`);
+    }
+    alert(`Thanks for playing`);
+}
+newGame();
