@@ -59,6 +59,7 @@ function game() {
     }
 
     if (playerScore === WINNING_SCORE) {
+        // confetti();
         alert(`Congratulations! You defeated the computer`);
     } else {
         alert(`Game Over! The computer defeated you!`);
