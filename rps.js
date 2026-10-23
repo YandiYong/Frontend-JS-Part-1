@@ -49,7 +49,7 @@ function game() {
     let computerScore = 0;
 
     alert(`Welcome to the game of Rock Paper & Scissors.\n
-    HOW TO PLAY:
+    HOW TO PLAY:🎮
     1. You will play against a Computer.
     2. Choose rock, paper or scissors.
     3. The first to win 3 rounds wins!
@@ -60,11 +60,11 @@ function game() {
     while (playerScore < WINNING_SCORE && computerScore < WINNING_SCORE) {
 
         let playerSelection = prompt(
-            "Your turn, champion!\n\nType one choice: rock, paper, or scissors.\nSelect OK to play, or Cancel to leave the tournament."
+            "Your turn, champion!\n\nType one choice: rock🪨, paper📄, or scissors✂️.\nSelect OK to play, or Cancel to leave the tournament."
         );
 
         if (playerSelection === null) {
-            alert("Tournament paused. Computer will be here if you want a rematch!");
+            alert("Tournament cancelled. Computer will be here if you want to play!");
             return;
         }
 
@@ -103,15 +103,12 @@ function game() {
             Your score: ${playerScore}
             Computer score: ${computerScore}`);
         }
-        
-        
-
     }
 
     if (playerScore === WINNING_SCORE) {
-        alert(`Congratulations! You defeated the compute,The tiny trophy is yours champion`);
+        alert(`🏆Congratulations! You defeated the computer.🎉🎉`);
     } else {
-        alert(`Game Over! The computer wins this time! The trophy is safe for now - challenge them to a rematch!`);
+        alert(`Game Over! The computer 🤖 wins this time! The trophy is safe for now - challenge them to a rematch!`);
     }
 }
 
