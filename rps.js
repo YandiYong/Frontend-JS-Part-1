@@ -69,15 +69,8 @@ function game() {
 
     while (playerScore < WINNING_SCORE && computerScore < WINNING_SCORE) {
 
-<<<<<<< Updated upstream
-        let playerSelection = prompt(
-            "Your turn, champion!\n\nType one choice: rock🪨, paper📄, or scissors✂️.\nSelect OK to play, or Cancel to leave the tournament."
-        );
-
-=======
         let playerSelection = playerChoice();
         
->>>>>>> Stashed changes
         if (playerSelection === null) {
             alert("Tournament cancelled. Computer will be here if you want to play!");
             return;
@@ -111,10 +104,6 @@ function game() {
             Your score: ${playerScore}
             Computer score: ${computerScore}`);
         }
-<<<<<<< Updated upstream
-=======
-        
->>>>>>> Stashed changes
     }
 
     if (playerScore === WINNING_SCORE) {
