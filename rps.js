@@ -5,6 +5,7 @@ const BEATS = {
 };
 const WINNING_SCORE= 3;
 
+
 function computerPlay() {
     const rpsChoices = ["rock", "paper", "scissors"];
 
@@ -13,35 +14,44 @@ function computerPlay() {
     return rpsChoices[randomNumber];
 }
 
-function playRound(playerChoice,computerChoice){
+const playerChoice = () => {
     const onlyLetters = /^[a-z]+$/i;
-    //checking if the user input is a string 
-    if(typeof computerChoice !== 'string' || typeof playerChoice !== 'string'){
-        alert("That choice isn't in the game yet. Please type a string , Rock, Paper or Scissors.");
-        throw new RangeError('Choices must be Rock, Paper or Scissors.');
+
+    while (true) {
+        const choice = prompt(
+            "Your turn, champion!\n\nType one choice: rock, paper, or scissors.\nSelect OK to play, or Cancel to leave the tournament."
+        );
+
+        if (choice === null) return null;
+
+        const normalized = choice.trim().toLowerCase();
+
+        if (!onlyLetters.test(normalized)) {
+            alert("That choice isn't in the game yet. Please type rock, paper, or scissors.");
+            continue;
+        }
+
+        if (!["rock", "paper", "scissors"].includes(normalized)) {
+            alert("Choices must be Rock, Paper or Scissors.");
+            continue;
+        }
+
+        return normalized;
     }
-    //cheking if the user input in a valide string (only letters)
-    if(!onlyLetters.test(computerChoice.trim()) || !onlyLetters.test(playerChoice.trim())){
-    alert("That choice isn't in the game yet. Please type a string, Rock, Paper or Scissors.");
-    throw new RangeError('Choices must be Rock, Paper or Scissors.');
-    }
-    //cheking if the user input in the valide choices
-    const player = Object.keys(BEATS).find(move=> move.toLocaleLowerCase()===playerChoice.trim().toLocaleLowerCase());
-    const computer = Object.keys(BEATS).find(move=> move.toLocaleLowerCase()===computerChoice.trim().toLocaleLowerCase());
-    if(!player || !computer){
-        alert('Choices must be Rock, Paper or Scissors.');
-        throw new RangeError('Choices must be Rock, Paper or Scissors.');
-    }
-    //cheking how's thw winner 
-    if(player === computer){
-        alert(`A draw! You both picked ${player}. No points this round.`);
+};
+
+
+function playRound(playerChoice,computerChoice){
+    if(playerChoice === computerChoice){
+        alert(`A draw! You both picked ${playerChoice}. No points this round.`);
         return null;
-    }else if(BEATS[player] === computer){
+    }else if(BEATS[playerChoice] === computerChoice){
         return 'player';
     }else{
         return 'computer';
     }
 };
+
 
 function game() {
 
@@ -59,25 +69,23 @@ function game() {
 
     while (playerScore < WINNING_SCORE && computerScore < WINNING_SCORE) {
 
+<<<<<<< Updated upstream
         let playerSelection = prompt(
             "Your turn, champion!\n\nType one choice: rock🪨, paper📄, or scissors✂️.\nSelect OK to play, or Cancel to leave the tournament."
         );
 
+=======
+        let playerSelection = playerChoice();
+        
+>>>>>>> Stashed changes
         if (playerSelection === null) {
             alert("Tournament cancelled. Computer will be here if you want to play!");
             return;
         }
 
-        playerSelection = playerSelection.trim().toLowerCase();
+        let computerSelection = computerPlay();
 
-        if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-            alert("That choice isn't in the game yet. Please type rock, paper, or scissors.");
-            continue;
-        }
-
-        const computerSelection = computerPlay();
-
-        const results = playRound(playerSelection, computerSelection);
+        let results = playRound(playerSelection, computerSelection);
 
         if(results === null){
             alert(`ROUND RESULT
@@ -103,6 +111,10 @@ function game() {
             Your score: ${playerScore}
             Computer score: ${computerScore}`);
         }
+<<<<<<< Updated upstream
+=======
+        
+>>>>>>> Stashed changes
     }
 
     if (playerScore === WINNING_SCORE) {
