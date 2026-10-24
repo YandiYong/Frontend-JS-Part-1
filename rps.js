@@ -68,8 +68,6 @@ function game() {
             return;
         }
 
-        playerSelection = playerSelection.trim().toLowerCase();
-
         if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
             alert("That choice isn't in the game yet. Please type rock, paper, or scissors.");
             continue;
